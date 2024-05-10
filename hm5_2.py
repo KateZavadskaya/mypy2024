@@ -1,7 +1,9 @@
-# Напишите программу, которая добавляет ‘ing’ к словам
+""" Напишите программу, которая добавляет ‘ing’ к словам
 
-any_word = ""
+"""
+
+anyWord = ""
 tail = "ing"
-new_word = any_word + tail
+newWord = anyWord + tail
 
-print(f"Слово с хвостиком: '{new_word}'")
+print(f"Слово с хвостиком: '{newWord}'")
