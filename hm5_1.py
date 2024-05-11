@@ -6,27 +6,22 @@
 
 # Способ 1.
 
-txt1 = "www.my_site.com#about"
+TXT_1 = "www.my_site.com#about"
 
-txt2 = txt1.replace("#", "/")
-txt1 = txt2
+TXT_2 = TXT_1.replace("#", "/")
 
-print(txt1)
-
-print(id(txt1))
-print(id(txt2))
-
+print(TXT_2 )
 
 # Способ 2.
 
-txt11 = "www.my_site.com#about"
+TXT_11 = "www.my_site.com#about"
 
-lst = list(txt11)
-x = lst.index("#")
-lst[x] = "/"
-txt11 = "".join(lst)
+LST = list(TXT_11)
+X = LST.index("#")
+LST[X] = "/"
+TXT_12 = "".join(LST)
 
-print(txt11)
+print(TXT_12)
 
 
 # Способ 3.

@@ -2,14 +2,14 @@
 
 """
 
-txt = "Ivanou Ivan"
+TXT = "Ivanou Ivan"
 
-txt2 = txt.split()
+TXT_2 = TXT.split()
 
-x = txt2[0]
-txt2[0] = txt2[1]
-txt2[1] = x
+X = TXT_2[0]
+TXT_2[0] = TXT_2[1]
+TXT_2[1] = X
 
-txt = " ".join(txt2)
+TXT = " ".join(TXT_2)
 
-print(txt)
+print(TXT)

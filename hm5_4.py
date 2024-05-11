@@ -2,11 +2,11 @@
 
 """
 
-anyTxt = ""
+ANY_TXT = ""
 
-print(f"Исходный текст: '{anyTxt}'")
+print(f"Исходный текст: '{ANY_TXT}'")
 
-cleanTxt = anyTxt.strip()
-anyTxt = cleanTxt
+CLEAN_TXT = ANY_TXT.strip()
+ANY_TXT_1 = CLEAN_TXT
 
-print(f"Чистый текст: '{anyTxt}'")
+print(f"Чистый текст: '{ANY_TXT_1}'")

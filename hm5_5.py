@@ -6,9 +6,9 @@
 
 """
 
-wrongName = "pARiS"
-print(f"Исходное имя: '{wrongName}'")
+WRONG_NAME = "pARiS"
+print(f"Исходное имя: '{WRONG_NAME}'")
 
-okName = wrongName.title()
-wrongName = okName
-print(f"Корректно написанное имя: '{wrongName}'")
+OK_NAME = WRONG_NAME.title()
+WRONG_NAME = OK_NAME
+print(f"Корректно написанное имя: '{WRONG_NAME}'")

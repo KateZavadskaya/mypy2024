@@ -2,8 +2,8 @@
 
 """
 
-anyWord = ""
-tail = "ing"
-newWord = anyWord + tail
+ANY_WORD = ""
+TAIL = "ing"
+NEW_WORD = ANY_WORD + TAIL
 
-print(f"Слово с хвостиком: '{newWord}'")
+print(f"Слово с хвостиком: '{NEW_WORD}'")
