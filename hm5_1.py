@@ -10,7 +10,7 @@ TXT_1 = "www.my_site.com#about"
 
 TXT_2 = TXT_1.replace("#", "/")
 
-print(TXT_2 )
+print(TXT_2)
 
 # Способ 2.
 
