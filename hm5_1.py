@@ -18,6 +18,3 @@ X = LST.index("#")
 LST[X] = "/"
 
 print("".join(LST))
-
-
-

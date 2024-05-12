@@ -2,6 +2,6 @@
 
 """
 
-txt = "Ivanou Ivan"
+TXT = "Ivanou Ivan"
 
-print(txt.split()[1], txt.split()[0])
+print(TXT.split()[1], TXT.split()[0])
