@@ -14,7 +14,6 @@ print("www.my_site.com#about".replace("#", "/"))
 TXT_11 = "www.my_site.com#about"
 
 LST = list(TXT_11)
-X = LST.index("#")
-LST[X] = "/"
+LST[TXT_11.find("#")] = "/"
 
 print("".join(LST))

@@ -3,5 +3,6 @@
 """
 
 TXT = "Ivanou Ivan"
+TXT_NEW = TXT.split()
 
-print(TXT.split()[1], TXT.split()[0])
+print(TXT_NEW[1], TXT_NEW[0])
