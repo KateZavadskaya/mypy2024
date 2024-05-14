@@ -5,6 +5,7 @@
 """
 
 TXT = "Robin Singh"
+TXT_NEW = TXT.split()
 
 print(TXT, type(TXT))
-print(TXT.split(), type(TXT.split()))
+print(TXT_NEW, type(TXT_NEW))
