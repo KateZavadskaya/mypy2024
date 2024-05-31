@@ -7,13 +7,14 @@ def opposite(n, first_number):
 
     n - volume of numbers
 
-    first_number - function return the number against it
+    first_number - function return the number against first_number
 
     """
 
     while True:
         if first_number <= n:
             middle = n / 2
+            result = False
             if first_number < middle:
                 result = middle + first_number
             elif first_number > middle:
@@ -25,4 +26,4 @@ def opposite(n, first_number):
     return None
 
 
-print(opposite(10, 9))
+print(opposite(10, 1))
