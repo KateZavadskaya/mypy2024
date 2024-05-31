@@ -27,7 +27,7 @@ def validate(code):
     return None
 
 
-print(f"1 {validate("4g")}")
-print(f"2 {validate("")}")
-print(f"4 {validate(4561261212345464)}")
-print(f"5 {validate(4561261212345467)}")
+print(validate("4g"))
+print(validate(""))
+print(validate(4561261212345464))
+print(validate(4561261212345467))
