@@ -24,10 +24,7 @@ def validate(code):
                         sum_even += doubled
             return (sum_even + sum_odd) % 10 == 0
         break
-    return None
+    return False
 
 
-print(validate("4g"))
-print(validate(""))
-print(validate(4561261212345464))
-print(validate(4561261212345467))
+assert validate("45612") is True, "not exist or not only numeric"

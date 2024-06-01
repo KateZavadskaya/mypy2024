@@ -23,7 +23,7 @@ def opposite(n, first_number):
                 result = 0
             return int(result)
         break
-    return None
+    return "Wrong number is input"
 
 
-print(opposite(10, 1))
+print(opposite(10, 9))
