@@ -12,8 +12,6 @@ def solution(nw_candls, candle_leftover):
     return tot_candles
 
 
-print(solution(15, 5))
-
 assert solution(5, 2) == 9, "Incorrect count"
 assert solution(1, 2) == 1, "Incorrect count"
 assert solution(15, 5) == 18, "Incorrect count"

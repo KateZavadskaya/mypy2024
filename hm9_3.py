@@ -26,8 +26,6 @@ def count_chars(s):
     return result
 
 
-print(count_chars("ссb"))
-
 assert count_chars("cccbba") == "c3b2a", "Incorrect count"
 assert count_chars("abeehhhhhccced") == "abe2h5c3ed", "Incorrect count"
 assert count_chars("aaabbceedd") == "a3b2ce2d2", "Incorrect count"
