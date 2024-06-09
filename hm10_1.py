@@ -9,10 +9,7 @@ def decorator(_any):
 
         """ Function takes arguments in any value """
 
-        lst = []
-        for x in args:
-            lst.append(x)
-        for i, y in enumerate(lst, start=1):
+        for i, y in enumerate(args, start=1):
             if isinstance(y, int):
                 if y > 0:
                     print(f"{i}. {y} Число больше 0")
@@ -22,7 +19,6 @@ def decorator(_any):
                     raise ValueError(f"{i}. {y} Число меньше 0")
             else:
                 raise ValueError(f"{i}. {y} Невозможно сравнить")
-                # i += 1
     return wrapper
 
 
@@ -34,4 +30,4 @@ def my_func(*args):
     print(args)
 
 
-my_func(1, 6, -2, 0, "u")
+my_func(1, 6, 2)

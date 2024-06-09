@@ -9,10 +9,7 @@ def decorator(_any):
 
         """ Function takes arguments in any value """
 
-        lst = []
         for x in args:
-            lst.append(x)
-        for x in lst:
             if not isinstance(x, (int, float)):
                 print("Result is not numeric")
                 break
@@ -29,4 +26,4 @@ def my_func(*args):
     return a
 
 
-my_func(1, 9.1, "k")
+my_func(1, 3, "k")
