@@ -22,7 +22,7 @@ def typed(*arg_types):
     return decorator
 
 
-@typed(str, int, str)
+@typed(str, str, str)
 def add(*args):
 
     """ Function work with str and int """
@@ -33,9 +33,9 @@ def add(*args):
     return result
 
 
-assert add("9", 9, 8) == "998", "Error processing (str, int)"
-assert add("9", "9", 8) == "998", "Error processing (str, int)"
-assert add("9", "9", "8") == "998", "Error processing (str, int)"
+assert add("9", 9, 8) == "998", "Error processing (str, int, int)"
+assert add("9", "9", 8) == "998", "Error processing (str, str, int)"
+assert add("9", "9", "8") == "998", "Error processing (str, str, str)"
 assert add(9, 9, 8) == "998", "Error processing (str, int)"
 assert add(9, 9) == "99", "Error processing (str, int)"
 assert add("9", "9") == "99", "Error processing (str, int)"
