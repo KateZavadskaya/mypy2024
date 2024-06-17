@@ -3,7 +3,7 @@
 
 class Book:
 
-    """ h """
+    """ Class has discription to one book """
 
     book_name = "Людзі на балоце"
     book_auth = "I.Мележ"
@@ -11,69 +11,63 @@ class Book:
     book_ISBN = "1234qwer"
     rsrved = False
     taken = False
+    rsrved_by = None
+    taken_by = None
 
     def about_book(self):
 
-        """ h """
+        """ Method return info status of reserv and taken """
 
-        return f"{self.book_name} Врезерве:{self.rsrved}, наруках:{self.taken}"
+        print(f"Статус 'в резерве': {self.rsrved} у {self.rsrved_by}")
+        print(f"Статус 'на руках': {self.taken} у {self.taken_by}")
+        return f"Книга '{self.book_name}' статус см.выше"
 
-    # def take_book_status(self):
-    #     if self.taken == False:
-    #         return f"Книга в библиотеке"
-    #     else:
-    #         return f"Книга на руках"
-    #
-    # def reserve_book_status(self):
-    #     if self.rsrved == False:
-    #         return f"Книгу можно зарезервировать"
-    #     else:
-    #         return f"Книгу нельзя зарезервировать"
+    def take_book(self, user):
 
-    def take_book(self):
+        """ Method takes book to hands """
 
-        """ h """
-
-        if self.taken is False:
+        if not self.taken:
             self.taken = True
-            return f"Книга '{self.book_name}' теперь на руках"
-        # else:
-        return f"Книга '{self.book_name}' на руках"
+            self.taken_by = user.user_name
+            return f"Книга '{self.book_name}' теперь на руках {user.user_name}"
+        return f"Книга '{self.book_name}' уже на руках"
 
-    def reserve_book(self):
+    def reserve_book(self, user):
 
-        """ h """
+        """ Method reserves the book to hands """
 
-        if self.rsrved is False:
+        if not self.rsrved:
             self.rsrved = True
-            return f"Книга '{self.book_name}' теперь зарезервирована"
-        # else:
+            self.rsrved_by = user.user_name
+            return f"Книга '{self.book_name}' тепер reserved {user.user_name}"
         return f"Книгу '{self.book_name}' нельзя зарезервировать"
 
-    def book_back_to_library(self):
+    def book_back_to_library(self, user):
 
-        """ h """
+        """ Method return the book form hands to library """
 
-        if self.taken is True:
+        if self.taken:
+            user = self.taken_by
+            self.taken_by = None
             self.taken = False
-            return f"Теперь книга '{self.book_name}' сдана"
-        # else:
+            return f"Теперь книга '{self.book_name}' сдана {user}"
         return f"Книга '{self.book_name}' в библиотеке, не на руках"
 
-    def book_back_to_rsrved(self):
+    def book_back_to_rsrved(self, user):
 
-        """ h """
+        """ Method return the book from reserv """
 
-        if self.rsrved is True:
+        if self.rsrved:
+            user = self.rsrved_by
+            self.rsrved_by = None
             self.rsrved = False
-            return f"Теперь книга '{self.book_name}' снята с учёта"
-        # else:
-        return f"Книга '{self.book_name}' и так снята с учёта"
+            return f"Теперь книга '{self.book_name}' снята с резерва {user}"
+        return f"Книга '{self.book_name}' и так снята с резерва"
 
 
 class BookUser:
 
-    """ h """
+    """ Class has discription for user """
 
     def __init__(self, user_name):
 
@@ -94,12 +88,17 @@ book_user_2 = BookUser("Дима")
 
 book_1 = Book()
 
+print("***** Резервируем книгу *****")
 print(book_1.about_book())
-print(book_1.reserve_book())
-print(book_1.take_book())
+print(book_1.reserve_book(book_user_1))
+print(book_1.reserve_book(book_user_2))
+print(book_1.book_back_to_rsrved(book_user_1))
+print(book_1.reserve_book(book_user_2))
 print(book_1.about_book())
-print(book_1.reserve_book())
-print(book_1.take_book())
-print(book_1.book_back_to_library())
-print(book_1.book_back_to_rsrved())
+print("***** Берём книгу *****")
+print(book_1.about_book())
+print(book_1.take_book(book_user_1))
+print(book_1.take_book(book_user_2))
+print(book_1.book_back_to_library(book_user_1))
+print(book_1.take_book(book_user_2))
 print(book_1.about_book())
