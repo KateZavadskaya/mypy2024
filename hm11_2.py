@@ -4,12 +4,12 @@
 class Bank:
 
     """ Has created for deposit with % """
-    percent = 30
 
-    def __init__(self, summ_dep, dep_time, dep_n):
+    def __init__(self, summ_dep, dep_time, dep_n, percent):
         self.summ_dep = summ_dep
         self.dep_time = dep_time * 12
         self.dep_n = dep_n
+        self.percent = percent
 
     def dep(self, percent):
 
@@ -28,7 +28,7 @@ class Bank:
         """  for pylint :(, no need in code """
 
 
-money_account_1 = Bank(100, 5, "1")
+money_account_1 = Bank(100, 5, "1", 30)
 
 total_amount_over_time = round((money_account_1.dep(30)), 2)
 

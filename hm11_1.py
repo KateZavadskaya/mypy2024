@@ -1,26 +1,20 @@
-""" Task 2: bank deposit """
+""" Task 1: library """
 
 
 class Book:
 
     """ Class has discription to one book """
 
-    book_name = "Людзі на балоце"
-    book_auth = "I.Мележ"
-    book_page_amount = 300
-    book_ISBN = "1234qwer"
-    rsrved = False
-    taken = False
-    rsrved_by = None
-    taken_by = None
+    def __init__(self, book_name, book_auth, book_page_amount_isnb,
+                 rsrved, taken, rsrved_by, taken_by):
 
-    def about_book(self):
-
-        """ Method return info status of reserv and taken """
-
-        print(f"Статус 'в резерве': {self.rsrved} у {self.rsrved_by}")
-        print(f"Статус 'на руках': {self.taken} у {self.taken_by}")
-        return f"Книга '{self.book_name}' статус см.выше"
+        self.book_name = book_name
+        self.book_auth = book_auth
+        self.book_page_amount_isnb = book_page_amount_isnb
+        self.rsrved = rsrved
+        self.taken = taken
+        self.rsrved_by = rsrved_by
+        self.taken_by = taken_by
 
     def take_book(self, user):
 
@@ -85,20 +79,28 @@ class BookUser:
 book_user_1 = BookUser("Катя")
 book_user_2 = BookUser("Дима")
 
-
-book_1 = Book()
+book_1 = Book("Людзі на балоце", "I.Мележ", "300_1234qwer78",
+              False, False, None, None)
 
 print("***** Резервируем книгу *****")
-print(book_1.about_book())
+print(f"Статус 'в резерве': {book_1.rsrved} у {book_1.rsrved_by}")
+print(f"Статус 'на руках': {book_1.taken} у {book_1.taken_by}")
+print(f"Книга '{book_1.book_name}' статус см.выше")
 print(book_1.reserve_book(book_user_1))
 print(book_1.reserve_book(book_user_2))
 print(book_1.book_back_to_rsrved(book_user_1))
 print(book_1.reserve_book(book_user_2))
-print(book_1.about_book())
+print(f"Статус 'в резерве': {book_1.rsrved} у {book_1.rsrved_by}")
+print(f"Статус 'на руках': {book_1.taken} у {book_1.taken_by}")
+print(f"Книга '{book_1.book_name}' статус см.выше")
 print("***** Берём книгу *****")
-print(book_1.about_book())
+print(f"Статус 'в резерве': {book_1.rsrved} у {book_1.rsrved_by}")
+print(f"Статус 'на руках': {book_1.taken} у {book_1.taken_by}")
+print(f"Книга '{book_1.book_name}' статус см.выше")
 print(book_1.take_book(book_user_1))
 print(book_1.take_book(book_user_2))
 print(book_1.book_back_to_library(book_user_1))
 print(book_1.take_book(book_user_2))
-print(book_1.about_book())
+print(f"Статус 'в резерве': {book_1.rsrved} у {book_1.rsrved_by}")
+print(f"Статус 'на руках': {book_1.taken} у {book_1.taken_by}")
+print(f"Книга '{book_1.book_name}' статус см.выше")
