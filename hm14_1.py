@@ -32,15 +32,21 @@ with open("students.txt", "r", encoding="utf-8") as file_students:
 file_students.close()
 
 with open("students.txt", "r", encoding="utf-8") as file_students:
+    AVARAGE_1 = 0
+    AVARAGE_2 = 0
+    COUNT_1 = 0
+    COUNT_2 = 0
     for line in file_students:
         if "группа №1" in line:
             medium_1_str = line.split(":")[1].strip()
             medium_1 = [int(grade) for grade in medium_1_str.split(", ")]
-            avagare_1 = sum(medium_1)/len(medium_1)
+            AVARAGE_1 = int(sum(medium_1)/len(medium_1))
+            COUNT_1 = len(medium_1)
         elif "группа №2" in line:
             medium_2_str = line.split(":")[1].strip()
             medium_2 = [int(grade) for grade in medium_2_str.split(", ")]
-            avagare_2 = sum(medium_2)/len(medium_2)
-    print(f"Средний балл гр №1: {avagare_1},"
-          f" Средний балл гр №2: {avagare_2}")
+            AVARAGE_2 = int(sum(medium_2)/len(medium_2))
+            COUNT_2 = len(medium_2)
+    print(f"Средний балл гр №1: {AVARAGE_1},"
+          f" Средний балл гр №2: {AVARAGE_2}")
 file_students.close()
