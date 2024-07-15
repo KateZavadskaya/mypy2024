@@ -33,6 +33,9 @@ class CardsDeck:
             for number in numbers:
                 self.deck.append(Card(number, suit))
 
+        self.deck.append(Card("Joker", "Black"))
+        self.deck.append(Card("Joker", "Red"))
+
     def shuffle(self):
 
         """ Create desc mix """
@@ -48,12 +51,13 @@ class CardsDeck:
         if 1 <= card_number <= len(self.deck):
             return (f"{self.deck[card_number - 1].suit} "
                     f"{self.deck[card_number - 1].number}")
-        return "Неверный номер карты. Выберите число от 1 до 52."
+        return "Неверный номер карты. Выберите число от 1 до 54."
 
 
 deck = CardsDeck()
 deck.shuffle()
 
-card_number_x = int(input('Выберите карту из колоды в 52 карты: '))
+card_number_x = int(input('Выберите карту из колоды в 54'
+                          ' карты: '))
 card = deck.get(card_number_x)
 print(f'Итого значение карты: {card}')
