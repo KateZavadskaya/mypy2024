@@ -1,20 +1,21 @@
 import requests
+import pytest
 from jsonschema import validate
-
-token = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMTAxMzY2ODg5ODMxNzQ0OTczMjAiLCJpYXQiOjE3MjM3M"
-         "jE3NDQsImV4cCI6MTcyMzcyNTM0NH0.4i_1OJVln1CASVqpci1uR5vPZexSZi2ytw-kjVkNW5U")
-baseUrl = "https://alexqa.netlify.app/.netlify"
-postUserUrl = "/functions/createUser"
+from fixture.user_fixture import obj_id
+from config.settings import token, baseUrl, postUserUrl
 
 
 def test_create_object():
     auth_token = token
     headers = {"Content-Type": "application/json", "Authorization": f"Bearer {auth_token}"}
     payload = {
-      "name": "Antony",
-      "email": "303@mail.com",
-      "age": 36,
-      "address": "SpainSpainSpainSpain"
+      "name": "Nina",
+      "email": "10026@mail.com",
+      "age": 35,
+      "phoneNumber": "+12345678901",
+      "address": "Italy 123 Main St",
+      "role": "user",
+      "referralCode": "AMCDEFQQ"
     }
     response = requests.post(f"{baseUrl}{postUserUrl}",
                              json=payload,
@@ -35,9 +36,15 @@ def test_create_object():
             "id": {"type": "string"},
             "name": {"type": "string"},
             "email": {"type": "string"},
+            "age": {"type": "integer"},
+            "phoneNumber": {"type": "string"},
+            "address": {"type": "string"},
+            "role": {"type": "string"},
+            "referralCode": {"type": "string"},
             "status": {"type": "string"}
         },
-        "required": ["id", "name", "email", "status"]
+        "required": ["id", "name", "email", "age", "phoneNumber", "address", "role",
+                     "referralCode", "status"]
     }
     try:
         validate(instance=response_json, schema=schema)
