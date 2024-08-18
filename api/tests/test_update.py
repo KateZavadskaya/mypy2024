@@ -28,8 +28,8 @@ def test_update_object(obj_id):
     assert response_json["id"] == obj_id, \
         f"заданный {obj_id}, фактич id {response_json['id']} не совпадают"
     assert response_json.get("email") == payload["email"], \
-        (f"заданный {payload['email']} и фактич {response_json.get("email")} "
-         f"не совпадают")
+        (f"заданный {payload['email']} "
+         f"и фактич {response_json.get('email')} не совпадают")
     assert response_json["age"] == payload["age"], \
         (f"заданный {payload['age']}, и фактич {response_json['age']} "
          f"не совпадают")
