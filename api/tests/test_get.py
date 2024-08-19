@@ -1,13 +1,27 @@
+"""
+This module contains a test function for retrieving
+a user object and validating the response.
+"""
+
+from venv import logger
 import requests
-from jsonschema import validate, ValidationError, SchemaError
+from jsonschema import (validate,
+                        ValidationError, SchemaError)
 from api.fixture.user_fixture import obj_id
-from api.config.settings import token, baseUrl, getUserUrl
+from api.config.settings import TOKEN, BASE_URL, GET_USER_URL
 
 
 def test_get_object(obj_id):
-    auth_token = token
+    """
+        Test function to retrieve a user object and validate the response.
+
+        This function sends a GET request to retrieve
+        a user object and validates the response status code and JSON schema.
+    """
+
+    auth_token = TOKEN
     headers = {"Authorization": f"Bearer {auth_token}"}
-    response = requests.get(f"{baseUrl}{getUserUrl}{obj_id}",
+    response = requests.get(f"{BASE_URL}{GET_USER_URL}{obj_id}",
                             headers=headers,
                             timeout=10)
     response_json = response.json()
@@ -38,8 +52,8 @@ def test_get_object(obj_id):
     }
     try:
         validate(instance=response_json, schema=schema)
-        print("JSON-ответ соответствует :) схеме")
+        logger.info("JSON-ответ соответствует :) схеме")
     except ValidationError as e:
-        print("JSON-ответ НЕ соответствует :( схеме:", e)
+        logger.error("JSON-ответ НЕ соответствует :( схеме: %s", e)
     except SchemaError as e:
-        print("Ошибка в схеме JSON:", e)
+        logger.error("Ошибка в схеме JSON: %s", e)

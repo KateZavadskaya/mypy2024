@@ -1,23 +1,40 @@
+"""
+This module contains a test function for creating
+ a user object and validating the response.
+"""
+
+from venv import logger
+
 import requests
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError, SchemaError
-from api.config.settings import token, baseUrl, postUserUrl
+
+from api.config.settings import (TOKEN, BASE_URL,
+                                 POST_USER_URL, ANY_EMAIL_CREATE)
 
 
 def test_create_object():
-    auth_token = token
+
+    """
+    Test function to create a user object and validate the response.
+
+    This function sends a POST request to create a user object and validates
+    the response status code and JSON schema.
+    """
+
+    auth_token = TOKEN
     headers = {"Content-Type": "application/json",
                "Authorization": f"Bearer {auth_token}"}
     payload = {
       "name": "Nina",
-      "email": "10036@mail.com",
+      "email": ANY_EMAIL_CREATE,
       "age": 35,
       "phoneNumber": "+12345678901",
       "address": "Italy 123 Main St",
       "role": "user",
       "referralCode": "AMCDEFQQ"
     }
-    response = requests.post(f"{baseUrl}{postUserUrl}",
+    response = requests.post(f"{BASE_URL}{POST_USER_URL}",
                              json=payload,
                              headers=headers,
                              timeout=10)
@@ -51,8 +68,8 @@ def test_create_object():
     }
     try:
         validate(instance=response_json, schema=schema)
-        print("JSON-ответ соответствует :) схеме")
+        logger.info("JSON-ответ соответствует :) схеме")
     except ValidationError as e:
-        print("JSON-ответ НЕ соответствует :( схеме:", e)
+        logger.error("JSON-ответ НЕ соответствует :( схеме: %s", e)
     except SchemaError as e:
-        print("Ошибка в схеме JSON:", e)
+        logger.error("Ошибка в схеме JSON: %s", e)

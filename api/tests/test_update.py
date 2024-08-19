@@ -1,16 +1,30 @@
+"""
+This module contains a test function for updating
+a user object and validating the response.
+"""
+
+from venv import logger
 import requests
 from jsonschema import validate, ValidationError, SchemaError
 from api.fixture.user_fixture import obj_id
-from api.config.settings import token, baseUrl, updateUserUrl, any_email_update
+from api.config.settings import (TOKEN, BASE_URL,
+                                 UPDATE_USER_URL, ANY_EMAIL_UPDATE)
 
 
 def test_update_object(obj_id):
-    auth_token = token
+    """
+        Test function to update a user object and validate the response.
+
+        This function sends a PUT request to update
+        a user object and validates the response status code and JSON schema.
+"""
+
+    auth_token = TOKEN
     headers = {"Content-Type": "application/json",
                "Authorization": f"Bearer {auth_token}"}
     payload = {
       "name": "Kate",
-      "email": any_email_update,
+      "email": ANY_EMAIL_UPDATE,
       "age": 35,
       "phoneNumber": "+1234567890",
       "address": "456 Elm Stanciya Zavodskaya",
@@ -18,7 +32,7 @@ def test_update_object(obj_id):
       "referralCode": "AYCDEFGH"
 
     }
-    response = requests.put(f"{baseUrl}{updateUserUrl}{obj_id}",
+    response = requests.put(f"{BASE_URL}{UPDATE_USER_URL}{obj_id}",
                             json=payload,
                             headers=headers,
                             timeout=10)
@@ -57,8 +71,8 @@ def test_update_object(obj_id):
     }
     try:
         validate(instance=response_json, schema=schema)
-        print("JSON-ответ соответствует :) схеме")
+        logger.info("JSON-ответ соответствует :) схеме")
     except ValidationError as e:
-        print("JSON-ответ НЕ соответствует :( схеме:", e)
+        logger.error("JSON-ответ НЕ соответствует :( схеме: %s", e)
     except SchemaError as e:
-        print("Ошибка в схеме JSON:", e)
+        logger.error("Ошибка в схеме JSON: %s", e)
