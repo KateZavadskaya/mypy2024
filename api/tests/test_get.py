@@ -7,7 +7,6 @@ from venv import logger
 import requests
 from jsonschema import (validate,
                         ValidationError, SchemaError)
-from api.fixture.user_fixture import obj_id
 from api.config.settings import TOKEN, BASE_URL, GET_USER_URL
 
 

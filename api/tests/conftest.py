@@ -8,7 +8,7 @@ from api.config.settings import (TOKEN, BASE_URL, POST_USER_URL,
                                  DELETE_USER_URL, ANY_EMAIL)
 
 
-@pytest.fixture()
+@pytest.fixture
 def obj_id():
     """
     Fixture to create a user object and return its ID.

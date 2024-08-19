@@ -1,10 +1,11 @@
 """Constants for api-project"""
 
 import random
-TOKEN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2V"
-         "ySWQiOiIxMTAxMzY2ODg5ODMxNzQ0OTczMjAiLCJpYXQ"
-         "iOjE3MjQwNjcwMjQsImV4cCI6MTcyNDA3MDYyNH0.uLw"
-         "QsUIW2SxrY5r8iLCU9Tp6q0SF6PNMtKe6vnsk94k")
+TOKEN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1"
+         "c2VySWQiOiIxMTAxMzY2ODg5ODMxNzQ0OTczMjAiL"
+         "CJpYXQiOjE3MjQxMDIxMjAsImV4cCI6MTcyNDEwNT"
+         "cyMH0.TZw8G-mYq9ViiHCGOXlT8WOy1krAVv3B-Up"
+         "zCrkxzLU")
 BASE_URL = "https://alexqa.netlify.app/.netlify"
 POST_USER_URL = "/functions/createUser"
 GET_USER_URL = "/functions/getUser/"

@@ -6,7 +6,6 @@ a user object and validating the response.
 from venv import logger
 import requests
 from jsonschema import validate, ValidationError, SchemaError
-from api.fixture.user_fixture import obj_id
 from api.config.settings import (TOKEN, BASE_URL,
                                  UPDATE_USER_URL, ANY_EMAIL_UPDATE)
 

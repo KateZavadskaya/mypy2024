@@ -4,7 +4,6 @@ This module contains a test function for deleting
 """
 
 import requests
-from api.fixture.user_fixture import obj_id
 from api.config.settings import (TOKEN, BASE_URL,
                                  DELETE_USER_URL)
 

@@ -6,11 +6,11 @@ This module contains a test function for creating
 from venv import logger
 import requests
 from jsonschema import validate, ValidationError, SchemaError
-from api.fixture.user_fixture import obj_id
-from api.config.settings import TOKEN, BASE_URL, POST_USER_URL
+from api.config.settings import (TOKEN, BASE_URL,
+                                 POST_USER_URL, ANY_EMAIL)
 
 
-def test_create_object(obj_id):
+def test_create_object():
 
     """
         Test function to create a user object and validate the response.
@@ -23,7 +23,7 @@ def test_create_object(obj_id):
     headers = {"Content-Type": "application/json",
                "Authorization": f"Bearer {auth_token}"}
     payload = {
-      "email": "0000013@mail.com",
+      "email": ANY_EMAIL,
       "age": 35,
       "phoneNumber": "+12345678901",
       "address": "Poland 123 Main St",
